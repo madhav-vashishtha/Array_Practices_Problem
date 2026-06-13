@@ -1,0 +1,38 @@
+def convertWords(words, weights):
+    ans = ""
+
+    for word in words:
+        total = 0
+
+        for ch in word:
+            index = ord(ch) - ord('a')
+            total += weights[index]
+
+        rem = total % 26
+
+        letter = chr(ord('z') - rem)
+
+        ans += letter
+
+    return ans
+
+
+words = ["abcd", "def", "xyz"]
+
+weights = [5,3,12,14,1,2,3,2,10,6,6,9,7,8,7,10,8,9,6,9,9,8,3,7,7,2]
+
+print(convertWords(words, weights))
+
+words = ["a","b","c"]
+
+weights = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+
+print(convertWords(words, weights))
+
+words = ["abcd"]
+
+weights = [7,5,3,4,3,5,4,9,4,2,2,7,10,2,5,10,6,1,2,2,4,1,3,4,4,5]
+
+print(convertWords(words, weights))
+
+
